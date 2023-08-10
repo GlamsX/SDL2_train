@@ -10,11 +10,10 @@ pub struct Face {
 
 impl Face {
   pub fn draw(&self, canvas: &mut Canvas<sdl2::video::Window>, width: f64, height: f64) {
-    let (x1, y1) = self.p1.orthographic_projection_y(300.0, 300.0, 10.0, 10.3);
-    let (x2, y2) = self.p2.orthographic_projection_y(300.0, 300.0, 10.0, 10.3);
-    let (x3, y3) = self.p3.orthographic_projection_y(300.0, 300.0, 10.0, 10.3);
+    let (x1, y1) = self.p1.orthographic_projection_y(100.0, 100.0, width, height);
+    let (x2, y2) = self.p2.orthographic_projection_y(100.0, 100.0, width, height);
+    let (x3, y3) = self.p3.orthographic_projection_y(100.0, 100.0, width, height);
 
-    dbg!(x1, y1, x2, y2, x3, y3);
     canvas.draw_line(Point::new(x1 as i32, y1 as i32), Point::new(x2 as i32, y2 as i32)).unwrap();
     canvas.draw_line(Point::new(x2 as i32, y2 as i32), Point::new(x3 as i32, y3 as i32)).unwrap();
     canvas.draw_line(Point::new(x3 as i32, y3 as i32), Point::new(x1 as i32, y1 as i32)).unwrap();

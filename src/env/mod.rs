@@ -39,12 +39,30 @@ impl Env {
               break 'running
           },
           Event::KeyDown { 
-            keycode: Some(Keycode::Z), .. 
+            keycode: Some(Keycode::Y), .. 
           } => {
             for face in &mut cube.faces {
               face.p1.rotate_y(0.1);
               face.p2.rotate_y(0.1);
               face.p3.rotate_y(0.1);
+            }
+          },
+          Event::KeyDown { 
+            keycode: Some(Keycode::X), .. 
+          } => {
+            for face in &mut cube.faces {
+              face.p1.rotate_x(0.1);
+              face.p2.rotate_x(0.1);
+              face.p3.rotate_x(0.1);
+            }
+          },
+          Event::KeyDown { 
+            keycode: Some(Keycode::Z), .. 
+          } => {
+            for face in &mut cube.faces {
+              face.p1.rotate_z(0.1);
+              face.p2.rotate_z(0.1);
+              face.p3.rotate_z(0.1);
             }
           },
           _ => {}

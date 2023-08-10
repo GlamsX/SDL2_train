@@ -22,8 +22,10 @@ impl Point3D {
   }
 
   pub fn orthographic_projection_y(&self, sx: f64, sz: f64, cx: f64, cz: f64) -> (f64, f64) {
-    let bx = sx * self.x + cx;
-    let by = -(sz * self.z + cz);
+    let c_x = cx/2.0;
+    let c_z = cz/2.0;
+    let bx = sx * self.x + c_x;
+    let by = sz * self.z + c_z;
     (bx, by)
 }
 
